@@ -10,7 +10,7 @@ export default ({ navigation }) => {
     const [password, setPassword] = useState(null);
 
     function openSection() {
-        navigation.navigate('mainScreen');
+        navigation.navigate('app');
     }
 
     return (

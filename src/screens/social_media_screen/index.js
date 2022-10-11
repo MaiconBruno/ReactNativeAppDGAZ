@@ -9,7 +9,6 @@ export default ({navigation}) => {
   return (
    <>
    <Text>Media</Text>
-   <Button title='SocialScreen' onPress={openMainScreen}></Button>
    </>
   );
 }
