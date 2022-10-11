@@ -1,17 +1,22 @@
 import React from 'react';
-import { Text, Button} from 'react-native';
-import {} from './styles';
+import { Text, Button } from 'react-native';
+import { Container } from './styles';
+import Card from '../../components/card_interface';
 
-export default ({navigation}) => {
+export default ({ navigation }) => {
 
-  function openMediaScreen () {
+  function openMediaScreen() {
     navigation.navigate('mediaScreen');
   }
 
   return (
-   <>
-    <Text>Main</Text>
-    <Button title='MainScreen' onPress={openMediaScreen}></Button>
-   </>
+    <>
+      <Container>
+        <Card />
+        <Button title='MainScreen' onPress={openMediaScreen}></Button>
+      </Container>
+
+
+    </>
   );
 }
