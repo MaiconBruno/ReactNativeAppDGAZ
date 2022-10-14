@@ -7,7 +7,7 @@ import MainScreen from '../screens/main_screen';
 import MediaScreen from '../screens/social_media_screen';
 import ReportsScreen from '../screens/report_panel_screen';
 import ContactScreen from '../screens/contact_screen';
-import ServicesScreen from '../screens/contact_screen';
+import ServicesScreen from '../screens/services_screen';
 
 
 export function StackRoutes() {

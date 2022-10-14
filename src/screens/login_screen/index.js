@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Input, LogoAPP } from './styles';
 import LogoIco from '../../images/icons/dgaz_logo.jpg';
-import { Text, Button } from 'react-native';
 import LoginButton from '../../components/btn_login';
 
 export default ({ navigation }) => {

@@ -8,7 +8,7 @@ export default ({navigation}) => {
   }
   return (
    <>
-   <Text>Media</Text>
+   <Text>Midia</Text>
    </>
   );
 }
