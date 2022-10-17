@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Section, BoxContact, Ico, ColumnRight, LogoAPP } from './styles';
+import { Container, Section,BoxTitle, BoxContact, Ico, ColumnRight, LogoAPP } from './styles';
 import { Alert, Linking } from 'react-native';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
 export default ({ navigation }) => {
 
-    
     function navigateScreens(route) {
         navigation.navigate(route);
     }
@@ -40,36 +39,7 @@ export default ({ navigation }) => {
                 icoURL: 'https://img.icons8.com/ios-filled/50/FFFFFF/apple-phone.png',
                 UrlButton: 'tel:+551124507404',
             },
-            {
-                id: 3,
-                title: 'Instagram',
-                context: '',
-                color: '#0B85D4',
-                dimensionX: 33,
-                dimensionY: 80,
-                icoURL: 'https://img.icons8.com/glyph-neue/64/FFFFFF/instagram-new.png',
-                UrlButton: 'https://www.instagram.com/dgazmkt/',
-            },
-            {
-                id: 4,
-                title: 'Tiktok',
-                context: '',
-                color: '#0B85D4',
-                dimensionX: 33,
-                dimensionY: 80,
-                icoURL: 'https://img.icons8.com/ios-filled/50/FFFFFF/tiktok--v1.png',
-                UrlButton: 'https://www.tiktok.com/@dgazmkt',
-            },
-            {
-                id: 5,
-                title: 'Youtube',
-                context: 'https://img.icons8.com/glyph-neue/64/FFFFFF/youtube-play.png',
-                color: '#0B85D4',
-                dimensionX: 33,
-                dimensionY: 80,
-                icoURL: 'https://img.icons8.com/glyph-neue/64/FFFFFF/youtube-play.png',
-                UrlButton: 'https://www.youtube.com/c/DgazBr',
-            },
+            
             {
                 id: 6,
                 title: 'Email',

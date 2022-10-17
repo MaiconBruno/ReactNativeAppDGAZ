@@ -1,14 +1,32 @@
-import React from 'react';
-import { Text, Button} from 'react-native';
-import {} from './styles';
+import React, { useState, } from 'react';
+import { Container, Section, WebContainer, BoxContent } from './styles';
+import { WebView } from 'react-native-webview';
+import LoaddingElement from '../../components/loadding';
 
-export default ({navigation}) => {
-  function openMainScreen () {
-    navigation.navigate('mainScreen');
+export default ({ navigation }) => {
+
+  function navigateScreens(screenLocate) {
+    navigation.navigate(screenLocate);
   }
+  const [loading, setLoading] = useState(true);
+
   return (
-   <>
-   <Text>Midia</Text>
-   </>
+    <Container source={{
+      uri: `https://www.dgaz.com.br/wp-content/uploads/2022/08/fundo_depoimentos.jpg`,
+    }}>
+      <Section>
+        <BoxContent>
+          <WebContainer
+            source={{ uri:'https://dgazhomologacao.xyz/app-teste/midia/' }}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            onLoadStart={() => setLoading(true)}
+            onLoad={() => setLoading(false)}
+          />
+        </BoxContent>
+        {loading ? <LoaddingElement /> : null}
+      </Section>
+
+    </Container>
   );
 }

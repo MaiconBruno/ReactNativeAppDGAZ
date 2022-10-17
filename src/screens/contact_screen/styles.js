@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
+
+
 export const Container = styled(ImageBackground)`
     width: 100%;
     height: 100%;  
@@ -8,6 +10,7 @@ export const Container = styled(ImageBackground)`
     justify-content: center;
     align-items: center;
 `;
+
 
 export const Section = styled(View)`
     width: 100%;
@@ -47,13 +50,14 @@ export const ColumnRight = styled(View)`
 `
 
 export const BoxTitle = styled(Text)`
-    font-size:14px;
-    color: #333333;
+    font-size:12px;
+    color: white;
     font-weight: 500;
     letter-spacing: 1.2px;
     width: 100%;
+    margin-top: 10px;
     padding-left: 10px;
-    text-align: left;
+    text-align: center;
 `;
 export const BoxText = styled(Text)`
     color: #333333;
