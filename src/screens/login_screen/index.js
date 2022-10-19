@@ -71,7 +71,7 @@ export default ({ navigation }) => {
 
           const data = await response.json();
           setParmsSingUp(data);
-          handleValidadeStatus(token);
+          handleValidadeStatus(data.token);
     }
 
     return (
