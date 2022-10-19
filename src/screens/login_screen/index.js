@@ -15,7 +15,47 @@ export default ({ navigation }) => {
     const [emailUser, setEmailUser] = useState(null);
     const [statusConect, setStatusConect] = useState(null);
 
+    function navigateScreens(route) {
+        navigation.navigate(route);
+    }
+
+    const singUpPage = async (status) => {
+       if (status == 200) {
+          navigateScreens('app')
+       }
+       else if (status == 403) {
+        return console.log('Login incorreto') 
+       }
+       else {
+        return console.log('Erro') 
+       }
+    }  
+   
+
+    const handleValidadeStatus = async (token) => {
+        const statusResponse = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/jwt-auth/v1/token/validate',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`,
+                }
+            }
+        );
+        const status = await statusResponse.json();
+        singUpPage(status.data.status);
+
+    }
+
+    const setParmsSingUp = async (parms) => {
+            setToken(parms.token);
+            setUser(parms.user_display_name);
+            setEmailUser(parms.user_email);
+    }
+
     const handleAuthentication = async (infoUsername, infopassword) => {
+        setParmsSingUp('');
         const response = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/jwt-auth/v1/token',
             {
                 method: 'POST',
@@ -28,16 +68,10 @@ export default ({ navigation }) => {
                     password: infopassword,
                 })
             });
-        const data = await response.json();
-        console.log(data);
-        setToken(data.token);
-        setUser(data.user_display_name);
-        setEmailUser(data.user_email);
-        
-        console.log('-------------------------')
-        console.log('Token: ' + token)
-        console.log('Usuario: ' + user)
-        console.log('Email: ' +emailUser)
+
+          const data = await response.json();
+          setParmsSingUp(data);
+          handleValidadeStatus(token);
     }
 
     return (
@@ -46,7 +80,7 @@ export default ({ navigation }) => {
                 <LogoAPP source={LogoIco} />
                 <Input value={username} onChangeText={setUsername} keyboardType='string' placeholder='Nome de usuário:' />
                 <Input value={password} onChangeText={setPassword} keyboardType='string' secureTextEntry={true} placeholder='Senha:' />
-                <LoginButton function={() => { handleAuthentication(username, password); }} nameButton={'Entrar'} />
+                <LoginButton function={() => { handleAuthentication(username, password);}} nameButton={'Entrar'} />
             </Container>
 
         </>
