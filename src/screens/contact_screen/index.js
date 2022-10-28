@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Section,BoxTitle, BoxContact, Ico, ColumnRight, LogoAPP } from './styles';
+import { Container, Section, BoxContact, Ico, ColumnRight, LogoAPP, LinkContact, SocialTextCotanin, TextContactSocial } from './styles';
 import { Alert, Linking } from 'react-native';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
 export default ({ navigation }) => {
@@ -9,12 +9,12 @@ export default ({ navigation }) => {
     }
 
     const openUrl = async (url) => {
-       const isSupported = await Linking.canOpenURL(url);
-       if (isSupported) {
-         await Linking.openURL(url);
-       }else{
-        Alert.alert(`Url não suportada`)
-       }
+        const isSupported = await Linking.canOpenURL(url);
+        if (isSupported) {
+            await Linking.openURL(url);
+        } else {
+            Alert.alert(`Url não suportada`)
+        }
     }
 
     const [contact, setContact] = useState(
@@ -39,7 +39,7 @@ export default ({ navigation }) => {
                 icoURL: 'https://img.icons8.com/ios-filled/50/FFFFFF/apple-phone.png',
                 UrlButton: 'tel:+551124507404',
             },
-            
+
             {
                 id: 6,
                 title: 'Email',
@@ -73,6 +73,24 @@ export default ({ navigation }) => {
                     )
                 })}
             </Section>
+            <SocialTextCotanin>
+                <LinkContact onPress={() => {
+                    openUrl(`whatsapp://send?phone=+5511943187520&text=Olá, estou entrando em contato pelo APP DGAZ`);
+                }}>
+                    <TextContactSocial>+55 11 94318-7520</TextContactSocial>
+                </LinkContact>
+                <LinkContact onPress={() => {
+                    openUrl(`tel:+551124507404`);
+                }}>
+                    <TextContactSocial>+55 11 2450-7404</TextContactSocial>
+                </LinkContact>
+                <LinkContact onPress={() => {
+                    openUrl(`mailto:contato@dgaz.com.br`);
+                }}>
+                    <TextContactSocial>contato@dgaz.com.br</TextContactSocial>
+                </LinkContact>
+            </SocialTextCotanin>
+
         </Container>
     );
 }

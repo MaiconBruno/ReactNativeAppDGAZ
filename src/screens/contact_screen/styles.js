@@ -75,3 +75,18 @@ export const LogoAPP = styled(Image)`
     height: 82px;
     margin-bottom: 30px;
 `;
+
+export const SocialTextCotanin = styled(View)`
+
+`;
+
+export const TextContactSocial = styled(Text)`
+    font-size: 22px;
+    font-weight: 600;
+    color: #636363;
+    text-align: center;
+`;
+
+export const LinkContact = styled(TouchableOpacity)`
+    margin: 5px 0px;
+`;
