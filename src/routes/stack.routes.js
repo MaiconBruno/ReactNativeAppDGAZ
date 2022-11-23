@@ -9,7 +9,6 @@ import ReportsScreen from '../screens/report_panel_screen';
 import ContactScreen from '../screens/contact_screen';
 import ServicesScreen from '../screens/services_screen';
 
-
 export function StackRoutes() {
     return (
         <Navigator screenOptions={

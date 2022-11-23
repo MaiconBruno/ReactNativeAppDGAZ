@@ -3,11 +3,12 @@ import { Container, Section, WebContainer, BoxContent, SocialContainer, BoxSocia
 import { Alert, Linking } from 'react-native';
 import LoaddingElement from '../../components/loadding';
 
-export default ({ navigation }) => {
+export default ({ navigation, token }) => {
 
   function navigateScreens(screenLocate) {
     navigation.navigate(screenLocate);
   }
+  
   const [loading, setLoading] = useState(true);
 
   

@@ -43,6 +43,7 @@ export const SocialContainer = styled(View)`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
     flex-direction: row;
     flex-wrap: wrap;
 `;

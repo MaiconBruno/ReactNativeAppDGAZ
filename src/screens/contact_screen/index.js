@@ -87,7 +87,12 @@ export default ({ navigation }) => {
                 <LinkContact onPress={() => {
                     openUrl(`mailto:contato@dgaz.com.br`);
                 }}>
-                    <TextContactSocial>contato@dgaz.com.br</TextContactSocial>
+                    <TextContactSocial>contato-@dgaz.com.br</TextContactSocial>
+                </LinkContact>
+                <LinkContact onPress={() => {
+                    openUrl(`https://pix.ae/renatofrota@gmail.com`);
+                }}>
+                    <TextContactSocial>Chave PIX</TextContactSocial>
                 </LinkContact>
             </SocialTextCotanin>
 

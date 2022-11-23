@@ -9,54 +9,16 @@ export default ({ navigation }) => {
 
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
+    
+    const [userLogin, setUserLogin] = useState(null);
+    const [userPassword, setUserPassword] = useState(null);
 
-    const [token, setToken] = useState(null);
-    const [user, setUser] = useState(null);
-    const [emailUser, setEmailUser] = useState(null);
-    const [statusConect, setStatusConect] = useState(null);
+    useEffect(() => {
+        authUser(userLogin, userPassword);
+    });
 
-    function navigateScreens(route) {
-        navigation.navigate(route);
-    }
-
-    const singUpPage = async (status) => {
-        if (status == 200) {
-            setStatusConect(true);
-            navigateScreens('app')
-            return console.log('Login feito!')
-        }
-        else if (status == 403) {
-            return console.log('Login incorreto')
-        }
-        else {
-            return console.log('Erro');
-        }
-    }
-
-    const handleValidadeStatus = async (token) => {
-        const statusResponse = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/jwt-auth/v1/token/validate',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${token}`,
-                }
-            }
-        );
-        const status = await statusResponse.json();
-        singUpPage(status.data.status);
-        setToken(token);
-    }
-
-    const setParmsSingUp = async (parms) => {
-        setUser(parms.user_display_name);
-        setEmailUser(parms.user_email);
-    }
-
-    const handleAuthentication = async (infoUsername, infopassword) => {
-        setParmsSingUp('');
-        const response = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/jwt-auth/v1/token',
+    const authUser = async (infoUsername, infopassword) => {
+        const api = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/jwt-auth/v1/token',
             {
                 method: 'POST',
                 headers: {
@@ -67,20 +29,39 @@ export default ({ navigation }) => {
                     username: infoUsername,
                     password: infopassword,
                 })
-            });
+            })
 
-        const data = await response.json();
-        setParmsSingUp(data);
-        handleValidadeStatus(data.token);
+        const resp_api = await api.json();
+        const _status = api.status;
+
+        if (_status == 200) {
+            setUserLogin(infoUsername);
+            setUserPassword(infopassword);
+            navigation.navigate('app', {
+                user_connect: _status,
+                user_login: resp_api.user_nicename,
+                user_email: resp_api.user_email,
+                user_name: resp_api.user_display_name,
+                user_token: resp_api.token,
+            });
+            
+        } else if (_status == 403) {
+            alert('Usuario e/ou login incorreto, por favor tente novamente.');
+        } else {
+            console.log('Erro no login codigo: ' + `${_status}`);
+        }
     }
-    
+
+
+
+
     return (
         <>
             <Container>
                 <LogoAPP source={LogoIco} />
                 <Input value={username} onChangeText={setUsername} keyboardType='string' placeholder='Nome de usuário:' />
                 <Input value={password} onChangeText={setPassword} keyboardType='string' secureTextEntry={true} placeholder='Senha:' />
-                <LoginButton function={() => { handleAuthentication(username, password); }} nameButton={'Entrar'} />
+                <LoginButton function={() => { authUser(username, password); }} nameButton={'Entrar'} />
             </Container>
 
         </>

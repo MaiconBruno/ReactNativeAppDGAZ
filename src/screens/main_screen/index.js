@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
 import { Container, Section, LogoAPP } from './styles';
+import { useRoute } from '@react-navigation/native';
 import Card from '../../components/card_interface';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
 export default ({ navigation }) => {
@@ -8,6 +8,10 @@ export default ({ navigation }) => {
   function navigateScreens(screenLocate) {
     navigation.navigate(screenLocate);
   }
+
+  const route = useRoute();
+  const { user_connect, user_login, user_email, user_name, user_token } = route.params;
+  console.log( user_email );
 
   const [tabs, setTabs] = useState(
     [
