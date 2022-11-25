@@ -77,22 +77,22 @@ export default ({ navigation }) => {
                 <LinkContact onPress={() => {
                     openUrl(`whatsapp://send?phone=+5511943187520&text=Olá, estou entrando em contato pelo APP DGAZ`);
                 }}>
-                    <TextContactSocial>+55 11 94318-7520</TextContactSocial>
+                    <TextContactSocial>Whatsapp: +55 11 94318-7520</TextContactSocial>
                 </LinkContact>
                 <LinkContact onPress={() => {
                     openUrl(`tel:+551124507404`);
                 }}>
-                    <TextContactSocial>+55 11 2450-7404</TextContactSocial>
+                    <TextContactSocial>Telefone: +55 11 2450-7404</TextContactSocial>
                 </LinkContact>
                 <LinkContact onPress={() => {
                     openUrl(`mailto:contato@dgaz.com.br`);
                 }}>
-                    <TextContactSocial>contato-@dgaz.com.br</TextContactSocial>
+                    <TextContactSocial>E-mail: contato@dgaz.com.br</TextContactSocial>
                 </LinkContact>
                 <LinkContact onPress={() => {
-                    openUrl(`https://pix.ae/renatofrota@gmail.com`);
+                    // openUrl(`https://pix.ae/renatofrota@gmail.com`);
                 }}>
-                    <TextContactSocial>Chave PIX</TextContactSocial>
+                    <TextContactSocial>Chave PIX: 11.857.657/0001-96</TextContactSocial>
                 </LinkContact>
             </SocialTextCotanin>
 

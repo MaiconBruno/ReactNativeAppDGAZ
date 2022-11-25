@@ -9,9 +9,14 @@ export default ({ navigation }) => {
     navigation.navigate(screenLocate);
   }
 
+ 
+
   const route = useRoute();
-  const { user_connect, user_login, user_email, user_name, user_token } = route.params;
+  const { user_connect, user_email, user_name, user_token } = route.params;
+  console.log( user_name );
   console.log( user_email );
+  console.log( user_connect );
+  console.log( user_token );
 
   const [tabs, setTabs] = useState(
     [

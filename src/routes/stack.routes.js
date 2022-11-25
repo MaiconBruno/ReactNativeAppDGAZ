@@ -30,7 +30,7 @@ export function StackRoutes() {
                 options={
                     {
                         title: 'Tela inicial',
-
+                        headerShown: false,
                     }
                 }
                 component={MainScreen} />

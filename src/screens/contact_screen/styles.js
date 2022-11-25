@@ -61,7 +61,7 @@ export const BoxTitle = styled(Text)`
 `;
 export const BoxText = styled(Text)`
     color: #333333;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 5px;
 `;
 
@@ -81,9 +81,10 @@ export const SocialTextCotanin = styled(View)`
 `;
 
 export const TextContactSocial = styled(Text)`
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     color: #636363;
+    font-weight: 400;
     text-align: center;
 `;
 
