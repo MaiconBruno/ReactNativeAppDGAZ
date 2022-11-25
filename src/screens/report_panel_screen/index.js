@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Container, ImgReport, Section } from './styles';
 import { Alert, Linking } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import LoginButton from '../../components/btn_login';
+import LoginReport from '../../components/btn_report';
 import ReportImage from '../../images/illustration/reportImage.png'
 export default ({ navigation }) => {
 
-    const [reportUrl, setReportUrl] = useState(null);
+  
+    const [arrayRespAPI, setArrayRespAPI] = useState([]);
 
     function navigateScreens(screenLocate) {
         navigation.navigate(screenLocate);
@@ -40,15 +41,13 @@ export default ({ navigation }) => {
 
         const status = api_resp.status;
         const data = await api_resp.json();
-        console.log(status);
-        console.log(data[0].acf.link_relatorio);
-        setReportUrl(data[0].acf.link_relatorio);
-
+        setArrayRespAPI(data);
+        // setReportUrl(data[0].acf.link_relatorio)
     }
 
-    useEffect(() => {
-        consultUserToken();
-    })
+  
+    consultUserToken();
+
 
     return (
         <>
@@ -56,9 +55,18 @@ export default ({ navigation }) => {
                 uri: `https://www.dgaz.com.br/wp-content/uploads/2022/08/fundo_depoimentos.jpg`,
             }}>
                 <Container>
-                    <ImgReport
-                        source={ReportImage} />
-                    <LoginButton nameButton={'Exibir Relatório'} function={() => { openUrl(reportUrl); }} />
+                    {/* <ImgReport
+                        source={ReportImage} /> */}
+                    {arrayRespAPI.map(data => {
+                        return (
+                            <LoginReport  key={data.id} 
+                            nameButton={data.title.rendered.replace(/Privado:/g, "")} 
+                            nametype={data.acf.area_relatorio}  
+                            data={data.date} 
+                            function={() => { openUrl(data.acf.link_relatorio); }} />
+                        )
+                    })}
+
                 </Container>
             </Section>
         </>

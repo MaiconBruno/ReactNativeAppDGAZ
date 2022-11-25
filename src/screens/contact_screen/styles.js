@@ -81,7 +81,7 @@ export const SocialTextCotanin = styled(View)`
 `;
 
 export const TextContactSocial = styled(Text)`
-    font-size: 18px;
+    font-size: ${(props) => props.size};;
     font-weight: 600;
     color: #636363;
     font-weight: 400;

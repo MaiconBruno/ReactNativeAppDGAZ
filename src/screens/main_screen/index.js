@@ -15,16 +15,6 @@ export default ({ navigation }) => {
   const [tabs, setTabs] = useState(
     [
       {
-        id: 1,
-        title: 'DGAZ Mídias',
-        textColor: 'white',
-        fontColor: 'white',
-        colorBody: '#0BB2D4',
-        route: 'midia',
-        content: 'Acesse nosso conteúdo informativo',
-        icoURL: 'https://img.icons8.com/avantgarde/100/000000/video-message.png',
-      },
-      {
         id: 2,
         title: 'Relatórios',
         textColor: 'white',
@@ -36,7 +26,7 @@ export default ({ navigation }) => {
       },
       {
         id: 3,
-        title: 'DGAZ Serviços',
+        title: 'Contratos',
         textColor: 'white',
         fontColor: 'white',
         route: 'service',
@@ -46,13 +36,23 @@ export default ({ navigation }) => {
       },
       {
         id: 4,
-        title: 'Contato DGAZ',
+        title: 'Contato',
         textColor: 'white',
         fontColor: 'white',
         route: 'contact',
         colorBody: '#0B5CD4',
         content: 'Todos os contatos em apenas um toque',
         icoURL: 'https://img.icons8.com/color/48/000000/hang-up-phone.png',
+      },
+      {
+        id: 1,
+        title: 'Mídias',
+        textColor: 'white',
+        fontColor: 'white',
+        colorBody: '#0B44f8',
+        route: 'midia',
+        content: 'Acesse nosso conteúdo informativo',
+        icoURL: 'https://img.icons8.com/avantgarde/100/000000/video-message.png',
       },
     ]
   )

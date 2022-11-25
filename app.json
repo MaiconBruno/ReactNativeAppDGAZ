@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-dgaz",
-    "slug": "DGAZ Marketing",
+    "name": "DGAZ Marketing",
+    "slug": "app-dgaz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

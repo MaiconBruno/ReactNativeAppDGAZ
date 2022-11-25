@@ -3,13 +3,9 @@ import { View, ImageBackground, Image } from 'react-native';
 
 
 export const Container = styled(View)`
-height: 100%;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-padding: 50px;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
 `;
 export const Section = styled(ImageBackground)`
     width: 100%;
@@ -23,3 +19,4 @@ export const ImgReport = styled(Image)`
     border: 2px #1cbdea;
     border-radius: 2px;
 `;
+
