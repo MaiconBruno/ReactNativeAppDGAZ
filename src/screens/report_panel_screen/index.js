@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, ImgReport } from './styles';
+import { Container, ImgReport, Section } from './styles';
 import { Alert, Linking } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginButton from '../../components/btn_login';
+import ReportImage from '../../images/illustration/reportImage.png'
 export default ({ navigation }) => {
 
     const [reportUrl, setReportUrl] = useState(null);
@@ -51,10 +52,15 @@ export default ({ navigation }) => {
 
     return (
         <>
-            <Container>
-                <ImgReport/>
-                <LoginButton nameButton={'Exibir Relatório'} function={() => { openUrl(reportUrl); }} />
-            </Container>
+            <Section source={{
+                uri: `https://www.dgaz.com.br/wp-content/uploads/2022/08/fundo_depoimentos.jpg`,
+            }}>
+                <Container>
+                    <ImgReport
+                        source={ReportImage} />
+                    <LoginButton nameButton={'Exibir Relatório'} function={() => { openUrl(reportUrl); }} />
+                </Container>
+            </Section>
         </>
     );
 }

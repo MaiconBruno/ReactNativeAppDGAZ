@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Section, BoxContact, Ico, ColumnRight, LogoAPP, LinkContact, SocialTextCotanin, TextContactSocial } from './styles';
-import { Alert, Linking } from 'react-native';
+import {TextInput, Alert, Linking, TouchableOpacity, Text } from 'react-native'
+import * as Clipboard from 'expo-clipboard';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
+
 export default ({ navigation }) => {
 
     function navigateScreens(route) {
@@ -16,6 +18,11 @@ export default ({ navigation }) => {
             Alert.alert(`Url não suportada`)
         }
     }
+
+    const copyToClipboard = async () => {
+        await Clipboard.setStringAsync('11857657000196');
+        alert('Pix Copiado!')
+    };
 
     const [contact, setContact] = useState(
         [
@@ -89,13 +96,10 @@ export default ({ navigation }) => {
                 }}>
                     <TextContactSocial>E-mail: contato@dgaz.com.br</TextContactSocial>
                 </LinkContact>
-                <LinkContact onPress={() => {
-                    setString('11.857.657/0001-96');
-                }}>
+                <LinkContact onPress={copyToClipboard}>
                     <TextContactSocial>Chave PIX: 11.857.657/0001-96</TextContactSocial>
                 </LinkContact>
             </SocialTextCotanin>
-
         </Container>
     );
 }
