@@ -90,7 +90,7 @@ export default ({ navigation }) => {
                     <TextContactSocial>E-mail: contato@dgaz.com.br</TextContactSocial>
                 </LinkContact>
                 <LinkContact onPress={() => {
-                    // openUrl(`https://pix.ae/renatofrota@gmail.com`);
+                    setString('11.857.657/0001-96');
                 }}>
                     <TextContactSocial>Chave PIX: 11.857.657/0001-96</TextContactSocial>
                 </LinkContact>

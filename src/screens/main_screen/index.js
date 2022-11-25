@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Section, LogoAPP } from './styles';
-import { useRoute } from '@react-navigation/native';
+// import { useRoute } from '@react-navigation/native';
 import Card from '../../components/card_interface';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
 export default ({ navigation }) => {
 
-  function navigateScreens(screenLocate) {
-    navigation.navigate(screenLocate);
+  function navigateScreens(screenroute) {
+    navigation.navigate(screenroute);
   }
 
- 
-
-  const route = useRoute();
-  const { user_connect, user_email, user_name, user_token } = route.params;
-  console.log( user_name );
-  console.log( user_email );
-  console.log( user_connect );
-  console.log( user_token );
+  // const route = useRoute();
+  // const { user_connect, user_email, user_name, user_token } = route.params;
 
   const [tabs, setTabs] = useState(
     [
@@ -26,7 +20,7 @@ export default ({ navigation }) => {
         textColor: 'white',
         fontColor: 'white',
         colorBody: '#0BB2D4',
-        locate: 'midia',
+        route: 'midia',
         content: 'Acesse nosso conteúdo informativo',
         icoURL: 'https://img.icons8.com/avantgarde/100/000000/video-message.png',
       },
@@ -35,7 +29,7 @@ export default ({ navigation }) => {
         title: 'Relatórios',
         textColor: 'white',
         fontColor: 'white',
-        locate: 'report',
+        route: 'report',
         colorBody: '#0B99D4',
         content: 'Acompanhe seus resultados aqui',
         icoURL: 'https://img.icons8.com/color/48/000000/graph.png',
@@ -45,7 +39,7 @@ export default ({ navigation }) => {
         title: 'DGAZ Serviços',
         textColor: 'white',
         fontColor: 'white',
-        locate: 'service',
+        route: 'service',
         colorBody: '#0B85D4',
         content: 'Nossos serviços',
         icoURL: 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-services-marketing-technology-flaticons-lineal-color-flat-icons.png',
@@ -55,7 +49,7 @@ export default ({ navigation }) => {
         title: 'Contato DGAZ',
         textColor: 'white',
         fontColor: 'white',
-        locate: 'contact',
+        route: 'contact',
         colorBody: '#0B5CD4',
         content: 'Todos os contatos em apenas um toque',
         icoURL: 'https://img.icons8.com/color/48/000000/hang-up-phone.png',
@@ -76,7 +70,7 @@ export default ({ navigation }) => {
             return (
               <Card
                 key={`${data.id}`}
-                callBackFunction={() => { navigateScreens(data.locate) }}
+                callBackFunction={() => { navigateScreens(data.route) }}
                 textColor={`${data.textColor}`}
                 fontColor={`${data.fontColor}`}
                 colorBody={`${data.colorBody}`}

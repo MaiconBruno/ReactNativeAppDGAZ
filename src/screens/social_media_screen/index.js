@@ -2,16 +2,12 @@ import React, { useState, } from 'react';
 import { Container, Section, WebContainer, BoxContent, SocialContainer, BoxSocial, IcoSocial } from './styles';
 import { Alert, Linking } from 'react-native';
 import LoaddingElement from '../../components/loadding';
-import { useRoute } from '@react-navigation/native';
 
 export default ({ navigation }) => {
 
   function navigateScreens(screenLocate) {
     navigation.navigate(screenLocate);
   }
-  // const route = useRoute();
-  // const { user_connect, user_login, user_email, user_name, user_token } = route.params;
-  // console.log( user_email );
 
   const [loading, setLoading] = useState(true);
 

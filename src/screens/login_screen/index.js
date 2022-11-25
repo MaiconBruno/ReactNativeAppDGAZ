@@ -32,9 +32,9 @@ export default ({ navigation }) => {
             //(200 sucesso) (403 falha) 
             const resp_token = statusResponse.status;
             if (resp_token == 200) {
-                const _email = await AsyncStorage.getItem('@tokenCode');
+                const _email = await AsyncStorage.getItem('@userEmail');
                 const _userName = await AsyncStorage.getItem('@userName');
-                const _token = await AsyncStorage.getItem('@userEmail');
+                const _token = await AsyncStorage.getItem('@tokenCode');
                 console.log('Token valido...')
                 navigation.navigate('app', {
                     user_connect: resp_token,
@@ -73,8 +73,8 @@ export default ({ navigation }) => {
     }
 
 
-    useEffect(() => {
-        scanToken();
+    useEffect(() => {      
+       scanToken();  
     });
 
 
