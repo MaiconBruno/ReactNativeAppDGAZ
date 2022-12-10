@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { View, ImageBackground, Image } from 'react-native';
+import { View, ImageBackground, Image, ScrollView } from 'react-native';
 
 
-export const Container = styled(View)`
+export const Container = styled(ScrollView)`
     height: 100%;
     width: 100%;
     padding: 30px;

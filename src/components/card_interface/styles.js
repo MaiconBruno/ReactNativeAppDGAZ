@@ -16,14 +16,14 @@ export const CardBody = styled(View)`
 `;
 
 export const ColumnContet = styled(View)`
-    width: 70%;
+    width: 85%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 `;
 
 export const ColumnIco = styled(View)`
-    width: 30%;
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: flex-end;

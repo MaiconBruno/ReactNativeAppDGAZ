@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Section, LogoAPP } from './styles';
+import { ContainerTabs, Section, LogoAPP, ContainImg, Ico } from './styles';
 // import { useRoute } from '@react-navigation/native';
 import Card from '../../components/card_interface';
 import LogoIco from '../../images/icons/dgaz-logo-no-bg.png';
@@ -15,57 +15,90 @@ export default ({ navigation }) => {
   const [tabs, setTabs] = useState(
     [
       {
-        id: 2,
+        id: 1,
         title: 'Relatórios',
         textColor: 'white',
         fontColor: 'white',
         route: 'report',
-        colorBody: '#0B99D4',
+        colorBody: '#0B66D4',
         content: 'Acompanhe seus resultados aqui',
-        icoURL: 'https://img.icons8.com/color/48/000000/graph.png',
+        icoURL: 'https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-dashboard-agile-flaticons-flat-flat-icons-2.png',
+      },
+      {
+        id: 2,
+        title: 'Financeiro',
+        textColor: 'white',
+        fontColor: 'white',
+        route: '',
+        colorBody: '#0B77D4',
+        content: 'Informações sobre pagamento',
+        icoURL: 'https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-money-vacation-planning-flaticons-flat-flat-icons.png',
       },
       {
         id: 3,
-        title: 'Contratos',
+        title: 'Videos e rede sociais',
         textColor: 'white',
         fontColor: 'white',
-        route: 'service',
-        colorBody: '#0B85D4',
-        content: 'Nossos serviços',
-        icoURL: 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-services-marketing-technology-flaticons-lineal-color-flat-icons.png',
+        colorBody: '#0B88Dd',
+        route: 'midia',
+        content: 'Acesse nosso conteúdo informativo',
+        icoURL: 'https://img.icons8.com/fluency/48/null/documentary.png',
       },
       {
         id: 4,
-        title: 'Contato',
+        title: 'Serviços DGAZ',
+        textColor: 'white',
+        fontColor: 'white',
+        colorBody: '#0B99Dd',
+        route: 'service',
+        content: 'Nossas especializações de atendimento ',
+        icoURL: 'https://img.icons8.com/fluency/48/null/online-maintenance-portal.png',
+      },
+      {
+        id: 5,
+        title: 'FAQ',
+        textColor: 'white',
+        fontColor: 'white',
+        colorBody: '#0BAADd',
+        route: 'faq',
+        content: 'Tem alguma duvida ?',
+        icoURL: 'https://img.icons8.com/emoji/48/null/question-mark-emoji.png',
+      },
+      {
+        id: 6,
+        title: 'Contratos',
+        textColor: 'white',
+        fontColor: 'white',
+        route: '',
+        colorBody: '#0BbbDd',
+        content: 'Meus Contratos',
+        icoURL: 'https://img.icons8.com/color/48/null/key-exchange.png',
+      },
+      {
+        id: 7,
+        title: 'Fale Conosco',
         textColor: 'white',
         fontColor: 'white',
         route: 'contact',
-        colorBody: '#0B5CD4',
-        content: 'Todos os contatos em apenas um toque',
-        icoURL: 'https://img.icons8.com/color/48/000000/hang-up-phone.png',
+        colorBody: '#0BccDd',
+        content: 'Todos os contatos em apenas um toque!',
+        icoURL: 'https://img.icons8.com/plasticine/100/null/ringer-volume.png',
       },
-      {
-        id: 1,
-        title: 'Mídias',
-        textColor: 'white',
-        fontColor: 'white',
-        colorBody: '#0B44f8',
-        route: 'midia',
-        content: 'Acesse nosso conteúdo informativo',
-        icoURL: 'https://img.icons8.com/avantgarde/100/000000/video-message.png',
-      },
+
     ]
   )
 
 
   return (
     <>
-      <Section source={{
-        uri: `https://www.dgaz.com.br/wp-content/uploads/2022/08/fundo_depoimentos.jpg`,
-      }}
-        resizeMode="cover">
-        <Container>
+      <Section>
+        <ContainImg>
           <LogoAPP source={LogoIco} />
+          <Ico source={{
+                            uri: `https://img.icons8.com/external-those-icons-flat-those-icons/96/null/external-Arrow-arrows-those-icons-flat-those-icons-46.png`,
+                        }}/>
+        </ContainImg>
+        <ContainerTabs>
           {tabs.map(data => {
             return (
               <Card
@@ -80,7 +113,7 @@ export default ({ navigation }) => {
               />
             )
           })}
-        </Container>
+        </ContainerTabs>
       </Section>
     </>
   );

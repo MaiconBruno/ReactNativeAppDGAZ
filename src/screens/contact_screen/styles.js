@@ -50,7 +50,7 @@ export const ColumnRight = styled(View)`
 `
 
 export const BoxTitle = styled(Text)`
-    font-size:12px;
+
     color: white;
     font-weight: 500;
     letter-spacing: 1.2px;
@@ -61,7 +61,6 @@ export const BoxTitle = styled(Text)`
 `;
 export const BoxText = styled(Text)`
     color: #333333;
-    font-size: 14px;
     margin-top: 5px;
 `;
 
@@ -77,17 +76,19 @@ export const LogoAPP = styled(Image)`
 `;
 
 export const SocialTextCotanin = styled(View)`
+width: 75%;
 
 `;
 
 export const TextContactSocial = styled(Text)`
-    font-size: ${(props) => props.size};;
+    font-size: 16px;
     font-weight: 600;
     color: #636363;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
 `;
 
 export const LinkContact = styled(TouchableOpacity)`
     margin: 5px 0px;
+    padding: 0px 5px;
 `;

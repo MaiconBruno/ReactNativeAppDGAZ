@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Container, Input, LogoAPP } from './styles';
 import LogoIco from '../../images/icons/dgaz_logo.jpg';
 import LoginButton from '../../components/btn_login';
 import LoaddingElement from '../../components/loadding';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default ({ navigation }) => {
 
@@ -72,11 +73,11 @@ export default ({ navigation }) => {
         }
     }
 
-
-    useEffect(() => {      
-       scanToken();  
-    });
-
+    useFocusEffect(
+        () => {
+            scanToken();
+        }
+    );
 
     const authUser = async (infoUsername, infopassword) => {
         try {
@@ -126,7 +127,7 @@ export default ({ navigation }) => {
     return (
         <>
             {loginScreenState ?
-                <LoaddingElement/> : <Container><LogoAPP source={LogoIco} />
+                <LoaddingElement /> : <Container><LogoAPP source={LogoIco} />
                     <Input value={username} onChangeText={setUsername} keyboardType='string' placeholder='Nome de usuário:' />
                     <Input value={password} onChangeText={setPassword} keyboardType='string' secureTextEntry={true} placeholder='Senha:' />
                     <LoginButton function={() => { authUser(username, password); }} nameButton={'Entrar'} />

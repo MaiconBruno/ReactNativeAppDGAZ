@@ -20,7 +20,6 @@ export default (props) => {
                             <Type>{props.nametype}</Type>
                         </Column>
                     </Container>
-
                 </TouchableOpacity>
             </Button>
         </>

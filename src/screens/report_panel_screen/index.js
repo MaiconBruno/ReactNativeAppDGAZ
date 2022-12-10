@@ -6,12 +6,12 @@ import LoginReport from '../../components/btn_report';
 import ReportImage from '../../images/illustration/reportImage.png'
 export default ({ navigation }) => {
 
-  
-    const [arrayRespAPI, setArrayRespAPI] = useState([]);
-
     function navigateScreens(screenLocate) {
         navigation.navigate(screenLocate);
     }
+
+
+    const [arrayRespAPI, setArrayRespAPI] = useState([{}]);
 
     const openUrl = async (url) => {
         const isSupported = await Linking.canOpenURL(url);
@@ -25,27 +25,46 @@ export default ({ navigation }) => {
 
     const consultUserToken = async () => {
         const _token = await AsyncStorage.getItem('@tokenCode');
-        reportAPI_GET(_token);
+        if (_token == '' || _token == null) {
+            alert('Serviço indisponivel, por favor tente novamente mais tarde.');
+        } else {
+            reportAPI_GET(_token);
+        }
     }
 
     const reportAPI_GET = async (token) => {
-        const api_resp = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/wp/v2/relatorio?status=any',
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+        try {
+            const api_resp = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/wp/v2/relatorio?status=any',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
 
-        const status = api_resp.status;
-        const data = await api_resp.json();
-        setArrayRespAPI(data);
-        // setReportUrl(data[0].acf.link_relatorio)
+            const status = api_resp.status;
+            console.log(status);
+
+            if (status == 200) {
+                const data = await api_resp.json();
+                setArrayRespAPI(data);
+            } else if (status == 403) {
+                alert('Token invalido! Faça login novamente.');
+                navigateScreens('app');
+            } else {
+                console.log('Status da conexão: ' + status);
+            }
+            // setReportUrl(data[0].acf.link_relatorio)
+        } catch {
+            alert('Serviço indisponivel, por favor tente novamente mais tarde.');
+            navigateScreens('app');
+        }
+
     }
 
-  
+
     consultUserToken();
 
 
@@ -57,14 +76,19 @@ export default ({ navigation }) => {
                 <Container>
                     {/* <ImgReport
                         source={ReportImage} /> */}
-                    {arrayRespAPI.map(data => {
-                        return (
-                            <LoginReport  key={data.id} 
-                            nameButton={data.title.rendered.replace(/Privado:/g, "")} 
-                            nametype={data.acf.area_relatorio}  
-                            data={data.date} 
-                            function={() => { openUrl(data.acf.link_relatorio); }} />
-                        )
+                    {arrayRespAPI.map((data) => {
+                        try {
+                            return (
+                                <LoginReport key={data.id}
+                                    nameButton={data.title.rendered.replace(/Privado:/g, "")}
+                                    nametype={data.acf.area_relatorio}
+                                    data={data.date}
+                                    function={() => { openUrl(data.acf.link_relatorio) }} />
+                            )
+                        } catch (error) {
+                            // ...
+                        }
+
                     })}
 
                 </Container>

@@ -30,6 +30,7 @@ export const LogoAPP = styled(Image)`
 `;
 
 export const Accordion_BodyText = styled(Text)`
-    font-size: 15px;
+    font-size: 16px;
     padding: 0;
+    max-width: 100%;
 `;
