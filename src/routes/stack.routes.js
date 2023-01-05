@@ -5,10 +5,11 @@ const { Screen, Navigator } = createNativeStackNavigator();
 import LoginScreen from '../screens/login_screen';
 import MainScreen from '../screens/main_screen';
 import MediaScreen from '../screens/social_media_screen';
-import Faq from '../screens/faq_screen';
+import FaqScreen from '../screens/faq_screen';
 import ReportsScreen from '../screens/report_panel_screen';
 import ContactScreen from '../screens/contact_screen';
 import ServicesScreen from '../screens/services_screen';
+import ContractScreen from '../screens/contract_screen';
 
 export function StackRoutes() {
     return (
@@ -36,10 +37,11 @@ export function StackRoutes() {
                 }
                 component={MainScreen} />
             <Screen name="midia" options={{ title: 'Mídias' }} component={MediaScreen} />
-            <Screen name="faq" options={{ title: 'Perguntas Frequentes' }} component={Faq} />
+            <Screen name="faq" options={{ title: 'Perguntas Frequentes' }} component={FaqScreen} />
             <Screen name="report" options={{ title: 'Relatórios' }} component={ReportsScreen} />
             <Screen name="service" options={{ title: 'Serviços' }} component={ServicesScreen} />
             <Screen name="contact" options={{ title: 'Contatos' }} component={ContactScreen} />
+            <Screen name="contract" options={{ title: 'Contratos' }} component={ContractScreen} />
         </Navigator>
     )
 }

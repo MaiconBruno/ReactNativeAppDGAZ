@@ -8,7 +8,7 @@ export const Main_Container = styled(View)`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 15px;
 `;
 export const List_Container = styled(ScrollView)`
    width: 100%;
@@ -19,8 +19,7 @@ export const Image_Container = styled(View)`
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-   
+    align-items: center;  
 `;
 
 export const LogoAPP = styled(Image)`

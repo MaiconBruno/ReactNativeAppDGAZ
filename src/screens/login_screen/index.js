@@ -36,7 +36,7 @@ export default ({ navigation }) => {
                 const _email = await AsyncStorage.getItem('@userEmail');
                 const _userName = await AsyncStorage.getItem('@userName');
                 const _token = await AsyncStorage.getItem('@tokenCode');
-                console.log('Token valido...')
+                // console.log('Token valido...')
                 navigation.navigate('app', {
                     user_connect: resp_token,
                     user_email: _email,
@@ -44,13 +44,13 @@ export default ({ navigation }) => {
                     user_token: _token,
                 });
             } else if (resp_token == 403) {
-                console.log('Token invalido...')
+                // console.log('Token invalido...')
                 await AsyncStorage.removeItem('@tokenCode');
                 await AsyncStorage.removeItem('@userName');
                 await AsyncStorage.removeItem('@userEmail');
                 setScreen_LoginState(false);
             } else {
-                console.log('Falha ao consultar o token: ' + resp_token)
+                // console.log('Falha ao consultar o token: ' + resp_token)
                 setScreen_LoginState(false);
             }
         } catch (e) {
@@ -117,7 +117,7 @@ export default ({ navigation }) => {
                 await AsyncStorage.removeItem('@userEmail');
             } else {
                 setScreen_LoginState(false);
-                console.log('Erro no login codigo: ' + `${_status}`);
+                // console.log('Erro no login codigo: ' + `${_status}`);
             }
         } catch (e) {
 

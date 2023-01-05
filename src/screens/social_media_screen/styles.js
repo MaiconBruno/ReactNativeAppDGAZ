@@ -3,12 +3,13 @@ import { WebView } from 'react-native-webview';
 import { View, Web, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
 export const WebContainer = styled(WebView)`
-
+height: 100%;
+background-color: transparent;
 `;
 
 export const Container = styled(ImageBackground)`
     width: 100%;
-    height: 100%;  
+    height: 90%;
     display :flex;
     justify-content: center;
     align-items: center;
@@ -16,12 +17,13 @@ export const Container = styled(ImageBackground)`
 
 export const BoxContent = styled(View)`
     width: 100%;
+    height: 100%;
 `;
 
 export const Section = styled(View)`
     width: 100%;
     padding: 0px;
-    height: 85%;
+    height: 100%;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -36,17 +38,6 @@ export const LogoAPP = styled(Image)`
     margin-bottom: 30px;
 `;
 
-export const SocialContainer = styled(View)`
-    width: 100%;
-    height: 15%;
-    padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    flex-direction: row;
-    flex-wrap: wrap;
-`;
 
 export const BoxSocial = styled(TouchableOpacity)`
     height: 30px;
@@ -58,6 +49,6 @@ export const BoxSocial = styled(TouchableOpacity)`
 `;
 
 export const IcoSocial = styled(Image)`
-    width:50px;
-    height:50px;
+    width:45px;
+    height:45px;
 `;

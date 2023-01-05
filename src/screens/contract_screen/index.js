@@ -34,7 +34,7 @@ export default ({ navigation }) => {
 
     const reportAPI_GET = async (token) => {
         try {
-            const api_resp = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/wp/v2/relatorio?status=any',
+            const api_resp = await fetch('https://dgazhomologacao.xyz/appsdgaz/wp-json/wp/v2/contrato?status=any',
                 {
                     method: 'GET',
                     headers: {
@@ -54,7 +54,7 @@ export default ({ navigation }) => {
                 alert('Token invalido! Faça login novamente.');
                 navigateScreens('app');
             } else {
-                // console.log('Status da conexão: ' + status);
+             
             }
             // setReportUrl(data[0].acf.link_relatorio)
         } catch {
@@ -82,9 +82,9 @@ export default ({ navigation }) => {
                                 return (
                                     <LoginReport key={data.id}
                                         nameButton={data.title.rendered.replace(/Privado:/g, "")}
-                                        nametype={data.acf.area_relatorio}
+                                        nametype={data.acf.area_contrato}
                                         data={data.date}
-                                        function={() => { openUrl(data.acf.link_relatorio) }} />
+                                        function={() => { openUrl(data.acf.link_contrato) }} />
                                 )
                             } catch (error) {
                                 // ...
