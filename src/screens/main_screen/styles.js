@@ -3,17 +3,17 @@ import styled from 'styled-components';
 
 export const Section = styled(SafeAreaView)`
     width: 100%;
-    height: 90%;  
+    height: 100%;  
     background-color:white;
 `;
 
 export const ContainImg = styled(View)`
     width: 100%;
-    height:25%;
+    height:22%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 0px;
 `;
 
 export const ContainerTabs = styled(ScrollView)`

@@ -96,9 +96,9 @@ export default ({ navigation }) => {
       <Section>
         <ContainImg>
           <LogoAPP source={LogoIco} />
-          <Ico source={{
+          {/* <Ico source={{
             uri: `https://img.icons8.com/external-those-icons-flat-those-icons/96/null/external-Arrow-arrows-those-icons-flat-those-icons-46.png`,
-          }} />
+          }} /> */}
         </ContainImg>
         <ContainerTabs>
           {tabs.map(data => {
@@ -117,7 +117,7 @@ export default ({ navigation }) => {
           })}
         </ContainerTabs>
       </Section>
-      <SocialContainer />
+      {/* <SocialContainer /> */}
     </>
   );
 }

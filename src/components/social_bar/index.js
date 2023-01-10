@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { SocialContainer, BoxSocial, IcoSocial } from './styles';
 import { Alert, Linking } from 'react-native';
-import Facebook from '../../images/icons/facebook.png';
-import Instagram from '../../images/icons/instagram.png';
-import Tiktok from '../../images/icons/tiktok.png';
-import Youtube from '../../images/icons/youtube.png';
+import Twitter from '../../images/icons/Twitter.png';
+import Instagram from '../../images/icons/Instagram.png';
+import Linkedin from '../../images/icons/Linkedin.png';
+import Youtube from '../../images/icons/Youtube.png';
 
 export default () => {
 
@@ -22,24 +22,24 @@ export default () => {
         [
             {
                 id: 1,
-                SocialName: 'Tiktok',
-                SocialUrlIco: Tiktok,
+                SocialName: 'Linkedin',
+                SocialUrlIco: Linkedin,
                 SocialColor: '',
-                Url: 'https://www.tiktok.com/@dgazmkt',
+                Url: 'https://www.linkedin.com/in/danielgaz/',
             },
             {
                 id: 2,
-                SocialName: 'Instagram',
+                SocialName: 'Twitter',
                 SocialUrlIco: Instagram,
                 SocialColor: '',
-                Url: 'https://www.instagram.com/dgazmkt/',
+                Url: 'https://twitter.com/dgaz',
             },
             {
                 id: 3,
                 SocialName: 'Facebook',
-                SocialUrlIco: Facebook,
+                SocialUrlIco: Twitter,
                 SocialColor: '',
-                Url: 'https://www.facebook.com/dgazmkt/',
+                Url: 'https://twitter.com/dgaz',
             },
             {
                 id: 4,
